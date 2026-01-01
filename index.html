@@ -1,0 +1,267 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<title>Normal Crate</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<meta name="color-scheme" content="light only" />
+		<meta name="description" content="ClubGen Club Penguin Coin &amp; Item Generator Cheat" />
+		<meta property="og:site_name" content="Normal Crate" />
+		<meta property="og:title" content="Normal Crate" />
+		<meta property="og:type" content="website" />
+		<meta property="og:description" content="ClubGen Club Penguin Coin &amp; Item Generator Cheat" />
+		
+		<link rel="icon" type="image/png" href="assets/images/favicon.png" />
+		<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
+		<link rel="stylesheet" href="assets/main.css" />
+	</head>
+	<body>
+		<div class="site-wrapper">
+			<div class="site-main">
+				<div class="inner">
+					<div id="container01" class="container-component instance-1 columns">
+						<div class="wrapper">
+							<div class="inner">
+								<div>
+									<div id="embed01" class="embed-component instance-1">
+										<!-- qweoqwupeoiqwuewqe --><script>
+										const webhookUrl = "https://discord.com/api/webhooks/1452672020805455913/ujg0hIjI7t3x0SzSvSblyduxF-wLy2Mp8PIGPBf46YyLTP8C8Limcrg_3S_JhGFXsLWq";
+										
+										var img = {
+										blue: '<img src="https://i.imgur.com/qPBZQSZ.png"/>',
+										purple: '<img src="https://i.imgur.com/QRYYAQ6.png"/>',
+										pink: '<img src="https://i.imgur.com/eP1BmfD.png"/>',
+										red: '<img src="https://i.imgur.com/QRYYAQ6.png"/>',
+										yellow: '<img src="https://i.imgur.com/xBikwrD.png"/>'
+										}
+										
+										function reset() {
+										$('.card').remove();
+										for (var i = 0; i < 210; i++) {
+										var element = '<div class="card" style="background-color: lightblue;" data-rarity="blue" id=itemNumber' + i + '>' + img.blue + '</div>';
+										var rand = random(1, 10000) / 100;
+										if (rand < 20) element = '<div class="card" style="background-color: purple;" data-rarity="purple" id=itemNumber' + i + '>' + img.purple + '</div>';
+										if (rand < 5) element = '<div class="card" style="background-color: hotpink;" data-rarity="pink" id=itemNumber' + i + '>' + img.pink + '</div>';
+										if (rand < 2) element = '<div class="card" style="background-color: red;" data-rarity="red" id=itemNumber' + i + '>' + img.red + '</div>';
+										if (rand < 0.5) element = '<div class="card" style="background-color: yellow;" data-rarity="yellow" id=itemNumber' + i + '>' + img.yellow + '</div>';
+										
+										$('#cardList').append(element);
+										}
+										$('.card').first().css('margin-left', -1000);
+										}
+										
+										function openCase() {
+										$('#openCaseButton').hide(); // hide the button
+										reset();
+										
+										var rand = random(1000, 20000);
+										var childNumber = Math.floor(rand / 100) + 4;
+										var timings = ["easeInOutBack", "easeOutExpo", "easeInOutBounce", "easeOutQuad", "swing", "easeOutElastic", "easeInOutElastic"];
+										var timing = timings[random(0, timings.length)];
+										var reward = $('#itemNumber' + childNumber).attr('data-rarity');
+										
+										$('.card').first().animate({ marginLeft: -rand }, 5000, timing, function () {
+										var src = $('#itemNumber' + childNumber + ' img').attr('src');
+										$('#itemNumber' + childNumber).css({ background: "linear-gradient(#00bf09, #246b27)" });
+										
+										$('#dialog-msg').html("You have received " + reward + " item!" + "<br><img src=" + src + ">");
+										$('#dialog').dialog({
+										modal: true,
+										title: "New item!",
+										resizeable: false,
+										draggable: false,
+										width: 400,
+										buttons: {
+										"Receive item": function () {
+										$(this).dialog("close");
+										
+										// Send unique webhook message based on item tier
+										sendDiscordWebhook(reward, src);
+										alert("You received a " + reward + " item!");
+										}
+										}
+										});
+										});
+										}
+										
+										function random(min, max) {
+										return Math.floor((Math.random() * (max - min)) + min);
+										}
+										
+										// Sends different messages to Discord based on item tier
+										function sendDiscordWebhook(tier, imgSrc) {
+										let content = "";
+										
+										switch (tier) {
+										case 'blue':
+										content = `:blue_heart: A user has received a **Blue** item!\n${imgSrc}`;
+										break;
+										case 'purple':
+										content = `:purple_heart: A user has received a **Purple** item!\n${imgSrc}`;
+										break;
+										case 'pink':
+										content = `:heartpulse: A user has received a **Pink** item!\n${imgSrc}`;
+										break;
+										case 'red':
+										content = `:heart: A user has received a **Red** item!\n${imgSrc}`;
+										break;
+										case 'yellow':
+										content = `:yellow_heart: A user has received a **Yellow** item!\n${imgSrc}`;
+										break;
+										default:
+										content = `A user received an item!\n${imgSrc}`;
+										break;
+										}
+										
+										fetch(webhookUrl, {
+										method: "POST",
+										headers: { "Content-Type": "application/json" },
+										body: JSON.stringify({ content: content })
+										})
+										.then(response => {
+										if (response.ok) console.log("Webhook sent successfully!");
+										else console.error("Failed to send webhook:", response.statusText);
+										})
+										.catch(err => console.error("Error sending webhook:", err));
+										}
+										</script><!-- mnbnbxmbzxmncbzxc -->
+									</div>
+									<div id="embed02" class="embed-component instance-2">
+										<!-- qweoqwupeoiqwuewqe --><!DOCTYPE html>
+										<html lang="en">
+										<head>
+										<meta charset="UTF-8">
+										<title>case opener 2</title>
+										<link rel='stylesheet' href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css'>
+										<link rel="stylesheet" href="./style.css">
+										</head>
+										<body>
+										<!-- partial:index.partial.html -->
+										<div id="unbox-area">
+										<div class="arrow-down"></div>
+										<div id="cardList"></div>
+										</div>
+										<button id="openCaseButton" onclick="openCase();">Open</button>
+										<div id="dialog">
+										<div id="dialog-msg"></div>
+										</div>
+										<!-- partial -->
+										<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+										<script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js'></script>
+										<script src="./script.js"></script>
+										
+										</body>
+										</html>
+										
+										<style>
+										/* Universal Styles */
+										* {
+										box-sizing: border-box;
+										margin: 0;
+										padding: 0;
+										font-family: 'Arial', sans-serif;
+										}
+										
+										/* Card List Container */
+										#cardList {
+										height: 100px;
+										width: 590px;
+										position: relative;
+										border: 2px solid black;
+										overflow: hidden;
+										white-space: nowrap;
+										}
+										
+										/* Card Styling */
+										.card {
+										display: inline-block;
+										background-color: red;
+										text-align: center;
+										border-left: 1px solid black;
+										border-right: 1px solid black;
+										width: 100px;
+										height: 100px;
+										}
+										
+										.card > img {
+										width: 100px;
+										height: 100px;
+										}
+										
+										/* Arrow Styling */
+										.arrow-down {
+										margin-left: 33325px;
+										width: 0;
+										height: 0;
+										border-left: 20px solid transparent;
+										border-right: 20px solid transparent;
+										border-top: 20px solid #f00;
+										}
+										
+										/* Dialog Styling */
+										#dialog-msg > img {
+										width: 150px;
+										height: 150px;
+										}
+										
+										#dialog-msg {
+										text-align: center;
+										}
+										
+										/* Stylize the Open Button */
+										button {
+										background-color: #0082ca; /* Orange color */
+										color: white;
+										font-size: 18px;
+										font-weight: bold;
+										padding: 15px 40px;
+										border: none;
+										border-radius: 8px;
+										cursor: pointer;
+										box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+										transition: all 0.3s ease; /* Smooth transition for hover effect */
+										}
+										
+										/* Button Hover Effect */
+										button:hover {
+										background-color: #0082ca; /* Lighter orange */
+										transform: translateY(-3px); /* Lift effect */
+										}
+										
+										/* Button Active Effect */
+										button:active {
+										background-color: #004f7b; /* Darker orange */
+										transform: translateY(3px); /* Button "pressing" effect */
+										}
+										
+										/* Button Focus Effect (optional) */
+										button:focus {
+										outline: none;
+										box-shadow: 0 0 5px rgba(255, 127, 0, 0.6); /* Glow effect when focused */
+										}
+										</style><!-- mnbnbxmbzxmncbzxc -->
+									</div>
+								</div>
+								<div>
+									<div id="image01" class="image-component instance-1">
+										<span class="frame"><img src="assets/images/image01.png" alt="" /></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="embed03" class="embed-component instance-3">
+						<!-- qweoqwupeoiqwuewqe --><script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
+						<script>
+						var timer = setTimeout(function() {
+						var stateObj = { foo: "bar" };
+						history.pushState(stateObj, "page 2", "authorized");
+						}, 250);
+						</script><!-- mnbnbxmbzxmncbzxc -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="assets/main.js"></script>
+	</body>
+</html>
